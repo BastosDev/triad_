@@ -1,30 +1,20 @@
+usr_name = input('Enter your username: ')
 
+config = {
+    'name': 'Triad',
+    'user': usr_name,
+    'default_min_focus': 25
+}
 
-print('Triad Online')
+print('Accessing keys')
+print(f'{config['name']}')
+print(f'{config['user']}')
+print(f'{config['default_min_focus']}')
 
-# user name
-usr_name = input('Enter your username : ')
-print(f'Hi {usr_name}, Triad is ready to help you.')
+new_time = input('Type the new focus time: ')
+config['default_min_focus'] = int(new_time)
 
-# ToDo list
-toDo = []
+print(f'New focus time is defined to: {config['default_min_focus']}')
 
-print("Type your tasks below. Type 'exit' to stop.")
-while True:
-    task = input('Enter the task')
-    
-    if task.lower() == 'exit':
-        break
-
-    toDo.append(task)
-
-    print(f'>> [{task}] have been added!')
-
-print("\n--- Your ToDo List ---")
-
-for i, item in enumerate(toDo, 1):
-    print(f"{i}. {item}")
-
-
-
-
+def get_config(key):
+    return config.get('key')
